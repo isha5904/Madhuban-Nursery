@@ -1,0 +1,62 @@
+.plants-hero {
+  background: linear-gradient(135deg, #0a2e1c 0%, #166534 100%);
+  padding: var(--space-24) 0 var(--space-12);
+  text-align: center;
+}
+
+.plants-hero__title {
+  color: white;
+  font-size: var(--text-4xl);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.plants-hero__subtitle {
+  color: var(--green-200);
+  font-size: var(--text-lg);
+}
+
+.plants-results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.plants-results__count {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+.plants-empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+}
+
+.plants-empty__icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.plants-empty__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--gray-700);
+  margin-bottom: var(--space-2);
+}
+
+.plants-empty__text {
+  color: var(--gray-500);
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .plants-hero {
+    padding: var(--space-20) 0 var(--space-8);
+  }
+
+  .plants-hero__title {
+    font-size: var(--text-2xl);
+  }
+}

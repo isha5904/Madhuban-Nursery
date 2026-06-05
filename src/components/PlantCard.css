@@ -1,0 +1,144 @@
+.plant-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.plant-card__link {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.plant-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--green-50);
+}
+
+.plant-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.plant-card:hover .plant-card__image {
+  transform: scale(1.08);
+}
+
+.plant-card__stock {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.plant-card__featured {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: 3px 10px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #78350f;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-sm);
+}
+
+.plant-card__body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.plant-card__category {
+  font-size: 0.65rem;
+  width: fit-content;
+  margin-bottom: var(--space-2);
+}
+
+.plant-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.plant-card__scientific {
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+  font-style: italic;
+  margin-bottom: var(--space-2);
+}
+
+.plant-card__desc {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.plant-card__meta {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.plant-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+}
+
+.plant-card__meta-icon {
+  font-size: 0.85rem;
+}
+
+.plant-card__care {
+  font-size: 0.65rem;
+}
+
+.plant-card__footer {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--gray-100);
+}
+
+.plant-card__price {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.plant-card__actions {
+  display: flex;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.plant-card__view {
+  flex: 1;
+}
+
+.plant-card__actions .whatsapp-btn {
+  flex: 1;
+}
