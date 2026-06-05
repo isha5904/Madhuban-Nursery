@@ -162,7 +162,11 @@
 }
 
 .plant-detail__spec-icon {
-  font-size: 1.5rem;
+  min-width: 46px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
   flex-shrink: 0;
 }
 
@@ -211,6 +215,10 @@
 }
 
 .plant-detail__wa {
+  flex: 1;
+}
+
+.plant-detail__cart {
   flex: 1;
 }
 

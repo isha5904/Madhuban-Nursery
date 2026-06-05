@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Madhuban Nursery plant image placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eef8ed"/>
+      <stop offset="0.55" stop-color="#dbeed7"/>
+      <stop offset="1" stop-color="#f7f1df"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#0f5132"/>
+      <stop offset="1" stop-color="#58a86b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="675" fill="url(#bg)"/>
+  <circle cx="705" cy="120" r="92" fill="#d9b45f" opacity=".18"/>
+  <path d="M450 548c-36-98-23-208 33-301" fill="none" stroke="#315f3d" stroke-width="14" stroke-linecap="round"/>
+  <path d="M449 390c-95-10-154-75-165-164 101 5 164 63 165 164Z" fill="url(#leaf)"/>
+  <path d="M486 335c18-99 86-151 177-153-15 99-79 153-177 153Z" fill="url(#leaf)"/>
+  <path d="M423 468c-83 8-143-34-168-108 88-8 149 32 168 108Z" fill="url(#leaf)"/>
+  <path d="M491 448c43-75 111-99 190-74-43 77-111 102-190 74Z" fill="url(#leaf)"/>
+  <path d="M337 559h226l-26 70H363z" fill="#8c6239"/>
+  <path d="M358 551h184v28H358z" rx="10" fill="#a87742"/>
+  <text x="450" y="88" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="700" fill="#16442c">Madhuban Nursery</text>
+  <text x="450" y="134" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#4d6a55">Healthy plants from Mansarovar, Jaipur</text>
+</svg>

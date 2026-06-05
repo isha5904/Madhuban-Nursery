@@ -33,7 +33,20 @@
 }
 
 .header__logo-icon {
-  font-size: 1.75rem;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.28), transparent 30%),
+    linear-gradient(135deg, var(--green-700), var(--green-900));
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(20, 51, 34, 0.18);
 }
 
 .header__logo-text {
@@ -41,11 +54,7 @@
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--primary-dark);
-  letter-spacing: -0.5px;
-}
-
-.header__logo-text span {
-  color: var(--green-600);
+  letter-spacing: 0;
 }
 
 .header__nav {
@@ -55,12 +64,20 @@
 }
 
 .header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--gray-600);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
+}
+
+.header__link .coming-soon-badge {
+  font-size: 0.52rem;
+  padding: 1px 5px;
 }
 
 .header__link:hover {
@@ -138,6 +155,10 @@
   .header__link {
     font-size: var(--text-xl);
     padding: var(--space-3) var(--space-6);
+  }
+
+  .header__link {
+    flex-direction: column;
   }
 
   .header__cta {

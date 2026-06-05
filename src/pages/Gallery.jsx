@@ -2,18 +2,14 @@ import { FloatingWhatsApp } from '../components/WhatsAppButton';
 import './Gallery.css';
 
 const galleryItems = [
-  { title: 'Our Greenhouse', category: 'Nursery', desc: 'A walk through our lush greenhouse where plants thrive under optimal conditions.', seed: 'greenhouse-nursery' },
-  { title: 'Tropical Collection', category: 'Plants', desc: 'A curated display of tropical beauties from our collection.', seed: 'tropical-collection' },
-  { title: 'Indoor Display Area', category: 'Display', desc: 'Our indoor showroom where you can see plants in styled settings.', seed: 'indoor-display' },
-  { title: 'Bonsai Corner', category: 'Bonsai', desc: 'Hand-trained bonsai specimens displayed in our dedicated bonsai section.', seed: 'bonsai-corner' },
-  { title: 'Flowering Section', category: 'Flowers', desc: 'Seasonal blooms creating a riot of color in our flowering plants area.', seed: 'flowering-section' },
-  { title: 'Herb Garden', category: 'Medicinal', desc: 'Our herb and medicinal plant garden with Tulsi, Mint, and more.', seed: 'herb-garden-plants' },
-  { title: 'Succulent Collection', category: 'Succulents', desc: 'A diverse collection of succulents in beautiful arrangements.', seed: 'succulent-garden' },
-  { title: 'Pot Selection', category: 'Pots', desc: 'Choose from our wide range of pots, planters, and decorative containers.', seed: 'plant-pots' },
-  { title: 'Fruit Plant Area', category: 'Fruit', desc: 'Dwarf mango, lemon, guava and other fruit plants ready for your garden.', seed: 'fruit-plants-nursery' },
-  { title: 'Plant Care Workshop', category: 'Events', desc: 'Our weekend workshops where we teach plant care techniques.', seed: 'plant-workshop' },
-  { title: 'Packaging Station', category: 'Delivery', desc: 'Where we carefully package each plant for safe delivery to your doorstep.', seed: 'plant-packaging' },
-  { title: 'Outdoor Garden Display', category: 'Display', desc: 'Our outdoor garden showcasing how plants look in a real garden setting.', seed: 'outdoor-garden' },
+  { title: 'Nursery Entrance', category: 'Nursery', desc: 'Madhuban Nursery visit area and plant display.', image: '/images/gallery/nursery-entrance.svg' },
+  { title: 'Indoor Plant Display', category: 'Indoor', desc: 'Indoor plants arranged for easy browsing.', image: '/images/plants/indoor-plant.svg' },
+  { title: 'Outdoor Garden Plants', category: 'Outdoor', desc: 'Hardy outdoor plants for Mansarovar homes.', image: '/images/plants/outdoor-plant.svg' },
+  { title: 'Flowering Plants', category: 'Flowers', desc: 'Colorful seasonal and evergreen flowering plants.', image: '/images/plants/flowering-plant.svg' },
+  { title: 'Medicinal Herbs', category: 'Medicinal', desc: 'Tulsi, mint, aloe vera, lemongrass and more.', image: '/images/plants/medicinal-plant.svg' },
+  { title: 'Fruit Plant Area', category: 'Fruit', desc: 'Lemon, guava, mango, papaya and fruit saplings.', image: '/images/plants/fruit-plant.svg' },
+  { title: 'Bonsai Corner', category: 'Decorative', desc: 'Decorative bonsai and premium tabletop plants.', image: '/images/plants/bonsai-decorative.svg' },
+  { title: 'Pots & Accessories', category: 'Accessories', desc: 'Planters and gardening essentials for plant care.', image: '/images/plants/gardening-pots.svg' },
 ];
 
 export default function Gallery() {
@@ -21,11 +17,9 @@ export default function Gallery() {
     <div className="gallery page-enter">
       <section className="gallery-hero">
         <div className="container">
-          <span className="section__label">🌿 Take a Look Around</span>
-          <h1 className="gallery-hero__title">Nursery Gallery</h1>
-          <p className="gallery-hero__subtitle">
-            Step into our green world — from our lush greenhouse to curated display areas, see where your plants grow before they reach you.
-          </p>
+          <span className="section__label">Nursery Gallery</span>
+          <h1 className="gallery-hero__title">Madhuban Nursery Gallery</h1>
+          <p className="gallery-hero__subtitle">A cleaner visual showcase for nursery spaces, plant sections and gardening essentials.</p>
         </div>
       </section>
 
@@ -36,9 +30,12 @@ export default function Gallery() {
               <div key={i} className="gallery-item">
                 <div className="gallery-item__image-wrap">
                   <img
-                    src={`https://images.unsplash.com/photo-${1585320801235 + i * 317}?w=600&h=400&fit=crop`}
+                    src={item.image}
                     alt={item.title}
                     loading="lazy"
+                    onError={(event) => {
+                      event.currentTarget.src = '/images/plant-placeholder.jpg';
+                    }}
                   />
                   <div className="gallery-item__overlay">
                     <span className="gallery-item__category">{item.category}</span>
@@ -51,7 +48,6 @@ export default function Gallery() {
           </div>
         </div>
       </section>
-
       <FloatingWhatsApp />
     </div>
   );

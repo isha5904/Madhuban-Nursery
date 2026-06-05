@@ -1,17 +1,10 @@
-export const categories = [
-  { id: 'indoor', name: 'Indoor Plants', icon: '🏠' },
-  { id: 'outdoor', name: 'Outdoor Plants', icon: '🌳' },
-  { id: 'flowering', name: 'Flowering Plants', icon: '🌺' },
-  { id: 'medicinal', name: 'Medicinal Plants', icon: '🌿' },
-  { id: 'fruit', name: 'Fruit Plants', icon: '🍎' },
-  { id: 'bonsai-decorative', name: 'Bonsai & Decorative', icon: '🎋' },
-];
+import { categories, careLevels } from '../data/plants';
 
-export const careLevels = ['Easy', 'Medium', 'High'];
+export { categories, careLevels };
 
 export const priceRange = [
-  { value: '0-200', label: 'Under ₹200' },
-  { value: '200-400', label: '₹200 – ₹400' },
-  { value: '400-700', label: '₹400 – ₹700' },
-  { value: '700+', label: 'Above ₹700' },
+  { value: '0-200', label: 'Under Rs. 200' },
+  { value: '200-400', label: 'Rs. 200 to Rs. 400' },
+  { value: '400-700', label: 'Rs. 400 to Rs. 700' },
+  { value: '700+', label: 'Above Rs. 700' },
 ];

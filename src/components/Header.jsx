@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { business } from '../data/business';
+import { ComingSoonBadge } from './LockedFeature';
 import './Header.css';
 
 const navLinks = [
@@ -28,11 +30,9 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__inner">
-        <Link to="/" className="header__logo">
-          <span className="header__logo-icon">🌿</span>
-          <span className="header__logo-text">
-            Green<span>Verse</span>
-          </span>
+        <Link to="/" className="header__logo" aria-label={`${business.name} home`}>
+          <span className="header__logo-icon" aria-hidden="true">M</span>
+          <span className="header__logo-text">{business.name}</span>
         </Link>
 
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
@@ -42,7 +42,8 @@ export default function Header() {
               to={link.path}
               className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''}`}
             >
-              {link.label}
+              <span>{link.label}</span>
+              {link.phase2 && <ComingSoonBadge />}
             </Link>
           ))}
           <Link to="/plants" className="btn btn--primary btn--sm header__cta">

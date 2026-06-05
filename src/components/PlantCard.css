@@ -110,7 +110,10 @@
 }
 
 .plant-card__meta-icon {
-  font-size: 0.85rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
 }
 
 .plant-card__care {
@@ -130,7 +133,8 @@
 }
 
 .plant-card__actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-2);
   padding: 0 var(--space-4) var(--space-4);
 }
@@ -139,6 +143,18 @@
   flex: 1;
 }
 
-.plant-card__actions .whatsapp-btn {
-  flex: 1;
+.plant-card__actions .whatsapp-btn,
+.plant-card__actions .btn {
+  width: 100%;
+  min-height: 36px;
+}
+
+@media (min-width: 620px) {
+  .plant-card__actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plant-card__actions .btn:last-child {
+    grid-column: 1 / -1;
+  }
 }

@@ -1,0 +1,64 @@
+.coming-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(216, 180, 95, 0.22);
+  color: #6b4822;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.locked-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.locked-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 51, 34, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.locked-modal__panel {
+  position: relative;
+  width: min(100%, 440px);
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 0.25s ease both;
+}
+
+.locked-modal__mark {
+  width: 74px;
+  height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: var(--space-4);
+  background: linear-gradient(135deg, var(--green-700), var(--green-900));
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.locked-modal__panel h3 {
+  margin-bottom: var(--space-3);
+}
+
+.locked-modal__panel p {
+  color: var(--gray-600);
+  margin-bottom: var(--space-6);
+}
