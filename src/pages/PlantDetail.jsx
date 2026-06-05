@@ -1,8 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
-import { formatPrice, getStockBadgeClass, getCareLevelBadgeClass, categories, plantFallbackImage } from '../data/plants';
+import { getStockBadgeClass, getCareLevelBadgeClass, categories, plantFallbackImage } from '../data/plants';
 import { usePlantCatalog } from '../data/plantStore';
 import WhatsAppButton, { FloatingWhatsApp } from '../components/WhatsAppButton';
-import AddToCartButton from '../components/AddToCartButton';
 import './PlantDetail.css';
 
 export default function PlantDetail() {
@@ -69,14 +68,14 @@ export default function PlantDetail() {
             </div>
             <h1 className="plant-detail__name">{plant.name}</h1>
             <p className="plant-detail__scientific">{plant.botanicalName}</p>
-            <p className="plant-detail__price">{formatPrice(plant.price)}</p>
+            <p className="plant-detail__price">Contact Madhuban Nursery for latest price and availability.</p>
             <p className="plant-detail__short-desc">{plant.description}</p>
 
             <div className="plant-detail__specs">
               <div className="plant-detail__spec"><span className="plant-detail__spec-icon">Sun</span><div><span className="plant-detail__spec-label">Sunlight</span><span className="plant-detail__spec-value">{plant.sunlight}</span></div></div>
               <div className="plant-detail__spec"><span className="plant-detail__spec-icon">Water</span><div><span className="plant-detail__spec-label">Watering</span><span className="plant-detail__spec-value">{plant.watering}</span></div></div>
               <div className="plant-detail__spec"><span className="plant-detail__spec-icon">Size</span><div><span className="plant-detail__spec-label">Typical Size</span><span className="plant-detail__spec-value">{plant.size}</span></div></div>
-              <div className="plant-detail__spec"><span className="plant-detail__spec-icon">Pot</span><div><span className="plant-detail__spec-label">Pot Included</span><span className="plant-detail__spec-value">{plant.potIncluded ? 'Yes' : 'No'}</span></div></div>
+              <div className="plant-detail__spec"><span className="plant-detail__spec-icon">Season</span><div><span className="plant-detail__spec-label">Best Season</span><span className="plant-detail__spec-value">{plant.season}</span></div></div>
             </div>
 
             <div className="plant-detail__suitable">
@@ -86,7 +85,6 @@ export default function PlantDetail() {
 
             <div className="plant-detail__actions">
               <WhatsAppButton plantName={plant.name} size="lg" className="plant-detail__wa" />
-              <AddToCartButton plant={plant} className="btn btn--secondary btn--lg plant-detail__cart" />
               <Link to="/plants" className="btn btn--outline btn--lg">Back to Plants</Link>
             </div>
           </div>
@@ -98,8 +96,12 @@ export default function PlantDetail() {
             <p className="plant-detail__description">{plant.description}</p>
           </div>
           <div className="plant-detail__detail-card">
-            <h3 className="plant-detail__detail-title">Care Tips</h3>
-            <p className="plant-detail__care">{plant.careTips}</p>
+            <h3 className="plant-detail__detail-title">Care Guide</h3>
+            <p className="plant-detail__care">{plant.careGuide}</p>
+          </div>
+          <div className="plant-detail__detail-card">
+            <h3 className="plant-detail__detail-title">Easy Soil Mix</h3>
+            <p className="plant-detail__care">{plant.soilMix}</p>
           </div>
         </div>
 
@@ -109,10 +111,10 @@ export default function PlantDetail() {
             <tr><td className="plant-detail__table-label">Plant Name</td><td>{plant.name}</td></tr>
             <tr><td className="plant-detail__table-label">Botanical Name</td><td><em>{plant.botanicalName}</em></td></tr>
             <tr><td className="plant-detail__table-label">Category</td><td>{category?.name}</td></tr>
-            <tr><td className="plant-detail__table-label">Price</td><td><strong>{formatPrice(plant.price)}</strong></td></tr>
             <tr><td className="plant-detail__table-label">Care Level</td><td>{plant.careLevel}</td></tr>
             <tr><td className="plant-detail__table-label">Sunlight</td><td>{plant.sunlight}</td></tr>
             <tr><td className="plant-detail__table-label">Watering</td><td>{plant.watering}</td></tr>
+            <tr><td className="plant-detail__table-label">Season</td><td>{plant.season}</td></tr>
             <tr><td className="plant-detail__table-label">Stock</td><td><span className={`badge ${getStockBadgeClass(plant.stockStatus)}`}>{plant.stockStatus}</span></td></tr>
           </tbody></table>
         </div>

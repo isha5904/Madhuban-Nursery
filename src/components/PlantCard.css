@@ -126,10 +126,23 @@
   border-top: 1px solid var(--gray-100);
 }
 
-.plant-card__price {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--primary-dark);
+.plant-card__season {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--green-50);
+  color: var(--primary);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+
+.plant-card__price-note {
+  display: block;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  font-weight: 600;
 }
 
 .plant-card__actions {
@@ -152,9 +165,5 @@
 @media (min-width: 620px) {
   .plant-card__actions {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .plant-card__actions .btn:last-child {
-    grid-column: 1 / -1;
   }
 }

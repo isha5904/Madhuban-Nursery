@@ -16,6 +16,8 @@ const defaultFilters = {
   sunlight: '',
   priceRange: '',
   stock: '',
+  season: '',
+  suggestion: '',
 };
 
 export default function Plants() {
@@ -27,11 +29,21 @@ export default function Plants() {
   const filteredPlants = useMemo(() => {
     return plants.filter(plant => {
       const term = filters.search.toLowerCase();
-      if (term && !plant.name.toLowerCase().includes(term) && !plant.botanicalName.toLowerCase().includes(term)) return false;
+      const text = `${plant.name} ${plant.botanicalName} ${plant.category} ${plant.season} ${plant.description} ${plant.careLevel}`.toLowerCase();
+      const seasonTerm =
+        term.includes('summer') ? 'Summer' :
+        term.includes('winter') ? 'Winter' :
+        term.includes('rainy') || term.includes('monsoon') ? 'Rainy' :
+        term.includes('all season') ? 'All Season' : '';
+      if (term && !text.includes(term) && (!seasonTerm || plant.season !== seasonTerm)) return false;
       if (filters.category && plant.category !== filters.category) return false;
+      if (filters.season && plant.season !== filters.season) return false;
       if (filters.careLevel && plant.careLevel !== filters.careLevel) return false;
       if (filters.sunlight && plant.sunlight !== filters.sunlight) return false;
       if (filters.stock && plant.stockStatus !== filters.stock) return false;
+      if (filters.suggestion === 'easy-growth' && plant.careLevel !== 'Easy') return false;
+      if (filters.suggestion === 'less-care' && !(plant.careLevel === 'Easy' && plant.watering === 'Low')) return false;
+      if (filters.suggestion === 'limited-budget' && plant.price > 250) return false;
       if (filters.priceRange) {
         const [min, max] = filters.priceRange.includes('+')
           ? [parseInt(filters.priceRange, 10), Infinity]
@@ -68,6 +80,16 @@ export default function Plants() {
               Showing <strong>{visiblePlants.length}</strong> of <strong>{filteredPlants.length}</strong> item{filteredPlants.length !== 1 ? 's' : ''}
             </p>
             <span className="pagination__status">Page {page} of {totalPages}</span>
+          </div>
+          <div className="plant-advice-strip">
+            <div>
+              <h3>Indoor care</h3>
+              <p>Keep plants near bright filtered light. Water only when the top soil feels dry. Use light soil with cocopeat and compost.</p>
+            </div>
+            <div>
+              <h3>Outdoor care</h3>
+              <p>Give morning sun, loose soil and deep watering. Flowering and fruit plants grow better with compost every few weeks.</p>
+            </div>
           </div>
           {filteredPlants.length > 0 ? (
             <>

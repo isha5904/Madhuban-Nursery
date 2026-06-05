@@ -15,6 +15,7 @@ export const sunlightNeeds = ['Low', 'Partial', 'Bright Indirect', 'Full Sun'];
 export const waterNeeds = ['Low', 'Moderate', 'High'];
 export const suitableFor = ['Home', 'Office', 'Garden', 'Balcony'];
 export const stockStatuses = ['In Stock', 'Limited Stock', 'Out of Stock'];
+export const seasons = ['Summer', 'Winter', 'Rainy', 'All Season'];
 export const plantFallbackImage = '/images/plant-placeholder.jpg';
 
 const categoryImages = {
@@ -80,6 +81,46 @@ const rawPlants = [
   ['Gardening Pots', 'Assorted planters', 'pots-accessories', 149, 'Durable pots and planters for indoor and outdoor plants.', 'Partial', 'Low', 'Easy', 'In Stock', false],
 ];
 
+const winterPlants = ['Rose', 'Petunia', 'Dahlia', 'Chrysanthemum'];
+const rainyPlants = ['Fern', 'Money Plant', 'Syngonium', 'Jasmine', 'Aparajita'];
+const summerPlants = ['Aloe Vera', 'Tulsi', 'Bougainvillea', 'Hibiscus', 'Mogra', 'Mint Plant', 'Lemongrass', 'Mango Plant', 'Papaya Plant', 'Cactus', 'Succulent'];
+
+const getSeason = (name) => {
+  if (winterPlants.includes(name)) return 'Winter';
+  if (rainyPlants.includes(name)) return 'Rainy';
+  if (summerPlants.includes(name)) return 'Summer';
+  return 'All Season';
+};
+
+const getSoilMix = (category) => {
+  switch (category) {
+    case 'indoor':
+      return 'Use light soil: 40% garden soil, 30% cocopeat, 20% compost and 10% sand/perlite. Soil should stay soft and drain water easily.';
+    case 'outdoor':
+      return 'Use strong garden mix: 50% garden soil, 30% compost and 20% sand. Keep soil loose so roots can spread well.';
+    case 'flowering':
+      return 'Use rich flowering mix: garden soil, compost and a little sand. Add vermicompost every few weeks for better flowers.';
+    case 'medicinal':
+      return 'Use simple kitchen garden soil: garden soil, compost and cocopeat. Keep it natural and avoid heavy chemical feeding.';
+    case 'fruit':
+      return 'Use deep fertile soil: garden soil, compost, cow manure and sand. Fruit plants need a big pot or open ground.';
+    case 'bonsai-decorative':
+      return 'Use fast-draining soil: small gravel, sand, cocopeat and little compost. Do not let water stand in the pot.';
+    default:
+      return 'Use clean loose soil with compost. Make sure the pot has drainage holes.';
+  }
+};
+
+const getCareGuide = (category, sunlight, watering) => {
+  if (category === 'indoor') {
+    return `Indoor care: keep it near a bright window, avoid harsh afternoon sun, and water only when the top soil feels dry. ${watering} watering is enough for most homes.`;
+  }
+  if (category === 'outdoor' || category === 'flowering' || category === 'fruit') {
+    return `Outdoor care: give ${sunlight.toLowerCase()} light, keep the pot/garden soil loose, and water deeply when the top layer starts drying.`;
+  }
+  return `Care is simple: give ${sunlight.toLowerCase()} light, ${watering.toLowerCase()} watering, and remove dry leaves regularly.`;
+};
+
 export const plants = rawPlants.map(([name, botanicalName, category, price, description, sunlight, watering, careLevel, stockStatus, featured], index) => ({
   id: index + 1,
   name,
@@ -97,11 +138,14 @@ export const plants = rawPlants.map(([name, botanicalName, category, price, desc
   careLevel,
   stockStatus,
   stock: stockStatus,
+  season: getSeason(name),
+  soilMix: getSoilMix(category),
+  careGuide: getCareGuide(category, sunlight, watering),
   featured,
   suitableFor: category === 'fruit' || category === 'outdoor' || category === 'flowering' ? ['Garden', 'Balcony'] : ['Home', 'Office'],
   potIncluded: category !== 'pots-accessories',
   size: category === 'fruit' || category === 'outdoor' ? '2-5 feet' : '6-24 inches',
-  careTips: `${sunlight} light, ${watering.toLowerCase()} watering, and ${careLevel.toLowerCase()} care. Visit Madhuban Nursery for plant-specific guidance before planting.`,
+  careTips: `${getCareGuide(category, sunlight, watering)} Soil mix: ${getSoilMix(category)}`,
 }));
 
 export const getPlantById = (id) => plants.find(p => p.id === parseInt(id, 10));

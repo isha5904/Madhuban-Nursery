@@ -48,6 +48,31 @@
   color: var(--gray-500);
 }
 
+.plant-advice-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.plant-advice-strip > div {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--green-50);
+  border: 1px solid var(--green-100);
+}
+
+.plant-advice-strip h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+  color: var(--primary-dark);
+}
+
+.plant-advice-strip p {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+}
+
 .plants-empty {
   text-align: center;
   padding: var(--space-16) var(--space-6);
@@ -129,5 +154,9 @@
 
   .pagination {
     flex-wrap: wrap;
+  }
+
+  .plant-advice-strip {
+    grid-template-columns: 1fr;
   }
 }

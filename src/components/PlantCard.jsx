@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { formatPrice, getStockBadgeClass, getCareLevelBadgeClass, getCategoryName, plantFallbackImage } from '../data/plants';
+import { getStockBadgeClass, getCareLevelBadgeClass, getCategoryName, plantFallbackImage } from '../data/plants';
 import WhatsAppButton from './WhatsAppButton';
-import AddToCartButton from './AddToCartButton';
 import './PlantCard.css';
 
 export default function PlantCard({ plant }) {
@@ -48,7 +47,8 @@ export default function PlantCard({ plant }) {
           </div>
 
           <div className="plant-card__footer">
-            <span className="plant-card__price">{formatPrice(plant.price)}</span>
+            <span className="plant-card__season">{plant.season}</span>
+            <span className="plant-card__price-note">Ask for latest price</span>
           </div>
         </div>
       </Link>
@@ -57,7 +57,6 @@ export default function PlantCard({ plant }) {
           View Details
         </Link>
         <WhatsAppButton plantName={plant.name} size="sm" />
-        <AddToCartButton plant={plant} />
       </div>
     </article>
   );

@@ -45,11 +45,14 @@ export function normalizeAdminPlant(plant) {
     stockStatus,
     stock: stockStatus,
     quantity,
+    season: plant.season || 'All Season',
+    soilMix: plant.soilMix || 'Use clean loose soil with compost. Make sure the pot has drainage holes.',
+    careGuide: plant.careGuide || `Give ${plant.sunlight || 'Partial'} light and ${(plant.watering || 'Moderate').toLowerCase()} watering.`,
     featured: Boolean(plant.featured),
     suitableFor: plant.suitableFor || ['Home', 'Garden'],
     potIncluded: plant.potIncluded ?? true,
     size: plant.size || '6-24 inches',
-    careTips: plant.careTips || `${plant.sunlight || 'Partial'} light, ${(plant.watering || 'Moderate').toLowerCase()} watering, and ${(plant.careLevel || 'Easy').toLowerCase()} care.`,
+    careTips: plant.careTips || `${plant.careGuide || `Give ${plant.sunlight || 'Partial'} light and ${(plant.watering || 'Moderate').toLowerCase()} watering.`} Soil mix: ${plant.soilMix || 'Use clean loose soil with compost. Make sure the pot has drainage holes.'}`,
     isCustom: true,
   };
 }
